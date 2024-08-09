@@ -94,6 +94,7 @@ def save_data():
         '主线图开荒自动组队': var_rctk_1.get(),
         '回主页领取任务通行证，邮箱': var_rtm.get()
     }
+    print("------------保存设置成功------------")
     with open(DATA_FILE, 'wb') as f:
         pickle.dump(data, f)
 
