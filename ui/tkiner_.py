@@ -84,7 +84,7 @@ def save_data():
         '购买次数': var_spt.get(),
         '活动一日一回': var_rao.get(),
         '活动一日一回自动组队':var_rao_1.get(),
-        '自动组队依据': raot_.get(),
+        '自动组队依据': var_raot_.get(),
         '活动图扫荡': var_rsat.get(),
         '活动图开荒': var_rct.get(),
         '活动图开荒自动组队': var_rct_1.get(),
@@ -141,7 +141,7 @@ var_rtm = tk.IntVar()
 var_rea = tk.IntVar()
 
 var_rao_1 = tk.IntVar()
-var_raot_ = tk.IntVar()
+var_raot_ = tk.StringVar()
 var_rao_2 = tk.IntVar()
 var_rct_1 = tk.IntVar()
 var_rcvat_1 = tk.IntVar()
@@ -242,19 +242,17 @@ checkbox_7_1 = tk.Checkbutton(frame_left, text="自动组队", variable=var_rao_
 var_rao_1.set(data['活动一日一回自动组队'])
 checkbox_7_1.pack(pady=7, anchor=tk.W, padx=(65, 0))
 
-raot_ = tk.StringVar()
-
 frame = tk.Frame(frame_left)
 frame.pack(pady=8)
 
 label = tk.Label(frame, text="自动组队依据:")
 label.pack(side=tk.LEFT, padx=5)
 
-entry_3 = tk.Entry(frame, textvariable=raot_)
+entry_3 = tk.Entry(frame, textvariable=var_raot_)
 entry_3.insert(0, "0/1/2/3/4/5,详见说明书")
 entry_3.config(fg='gray')
 entry_3.pack(side=tk.LEFT, padx=5)
-raot_.set(data['自动组队依据'])
+var_raot_.set(data['自动组队依据'])
 
 
 entry_3.bind("<FocusIn>", on_entry_focusin_2)
@@ -395,8 +393,8 @@ def change_startapp():
     raot = var_rao_1.get()
     #7.2组队依据
     raot_ = var_raot_.get()
-    if rao == 1:
-        if raot not in ["0", "1", "2", "3", "4","5"]:
+    if raot == 1:
+        if raot_ not in ["0", "1", "2", "3", "4","5"]:
             messagebox.showwarning("活动一日一回组队依据异常", "请填写0/1/2/3/4/5\n六个中的一个")
             return
 
