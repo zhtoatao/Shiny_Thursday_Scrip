@@ -1,0 +1,2 @@
+20680 INFO 2024-08-08 23:06:49 adbÂ·¾¶: H:\game2\MuMuPlayer-12.0\shell\adb.exe 
+adb¶Ë¿Ú: 16480
